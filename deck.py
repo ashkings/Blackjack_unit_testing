@@ -2,14 +2,15 @@ import random
 
 
 class Table:
-    hand = []
+    def __init__(self):
+        self.hand = []
 
     def get_hand(self, deck):
         for item in range(2):
             random.shuffle(deck)
             new_card = deck.pop()
             self.hand.append(new_card)
-        copy_hand = self.hand.copy()
+        copy_hand = self.hand
         self.hand = []
         return copy_hand
 
