@@ -1,11 +1,11 @@
-from deck import Table
+from deck import Deck
 
 
 def hit_or_stand():
     return input('Press h to make a hit  s to make a stand: ', ).lower()
 
 
-class Player(Table):
+class Player(Deck):
     def __init__(self):
         self.players_card = []
 
@@ -17,7 +17,17 @@ class Player(Table):
             raise ValueError('No more than 8 players can play at a time.')
 
         else:
-            table = Table()
-            self.players_card = [table.get_initial_cards(deck)
-                                 for player in range(player_count)]
+            dek = Deck()
+            self.players_card = [dek.get_initial_cards(deck)
+                                 for _ in range(player_count)]
         return self.players_card
+
+
+class NameList:
+    def __init__(self, player_count):
+        self.number_of_players = player_count
+        self.name_list = []
+
+    def generate_player_list(self):
+        self.name_list = [input('Enter player name: ', )
+                          for player in range(self.number_of_players)]

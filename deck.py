@@ -13,17 +13,15 @@ def get_deck(deck_count=1):
         return deck
 
 
-class Table:
+class Deck:
     def __init__(self):
         self.hand = []
 
     def get_initial_cards(self, deck):
-        round = 2
-        while round:
+        for _ in range(2):
             random.shuffle(deck)
             new_card = deck.pop()
             self.hand.append(new_card)
-            round = round - 1
         copy_hand = self.hand
         self.hand = []
         return copy_hand
