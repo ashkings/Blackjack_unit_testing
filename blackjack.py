@@ -93,16 +93,17 @@ def players_chance(deck, player, name):
 
 
 def dealers_chance(player, dealer, name, deck):
+    if not len(player.players_card):
+        print('Dealer ' + dealer.dealer_name + ' wins')
+        print('\n' * 2)
+        return 22
+
     print('Dealers hole card value is: ', end='')
     dealer.show_hole_card()
     print('\n' * 2)
     sum_in_dealer_hands = get_sum_of_cards(dealer.dealer_cards)
 
-    if not len(player.players_card):
-        print('Dealer ' + dealer.dealer_name + ' wins')
-        print('\n' * 2)
-
-    elif sum_in_dealer_hands < 17:
+    if sum_in_dealer_hands < 17:
         print('Dealer making hit')
 
         while sum_in_dealer_hands < 17:
