@@ -5,7 +5,7 @@ class Table:
     def __init__(self):
         self.hand = []
 
-    def get_hand(self, deck):
+    def get_initial_cards(self, deck):
         for item in range(2):
             random.shuffle(deck)
             new_card = deck.pop()
@@ -17,6 +17,10 @@ class Table:
     def get_deck(self, deck_count=1):
         if not deck_count:
             raise ValueError('Deck cannot be empty.')
+
+        elif deck_count > 8:
+            raise ValueError('Number of decks cannot be more than 8.')
+
         else:
-            deck = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'k'] * 4 * deck_count
+            deck = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'] * 4 * deck_count
             return deck
