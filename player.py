@@ -2,6 +2,10 @@ from deck import Table
 from Players_Name_list import NameList
 
 
+def hit_or_stand():
+    return input('Press h to make a hit  s to make a stand: ', ).lower()
+
+
 class Player(Table):
     def __init__(self):
         self.players_card = []
@@ -17,6 +21,3 @@ class Player(Table):
             table = Table()
             self.players_card = [table.get_initial_cards(deck) for player in range(player_count)]
         return self.players_card
-
-    def hit_or_stand(self):
-        return input('Press h to make a hit  s to make a stand: ', ).lower()

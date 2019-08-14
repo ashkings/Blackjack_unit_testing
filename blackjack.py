@@ -1,6 +1,6 @@
-from deck import Table
+from deck import Table, get_deck
 from dealer import Dealer
-from player import Player
+from player import Player, hit_or_stand
 from Players_Name_list import NameList
 import random
 
@@ -68,7 +68,7 @@ def players_chance(deck, player, name):
         print(name.name_list[item_in_name_list])
         print('Cards: ', end='')
         print(cards)
-        players_choice = player.hit_or_stand()
+        players_choice = hit_or_stand()
 
         while players_choice == 'h':
             total_sum_in_hand = get_score(deck, cards)
@@ -78,7 +78,7 @@ def players_chance(deck, player, name):
                 copy_players_card.remove(cards)
                 break
 
-            players_choice = player.hit_or_stand()
+            players_choice = hit_or_stand()
         item_in_name_list = item_in_name_list + 1
     player.players_card = copy_players_card.copy()
 
@@ -103,7 +103,21 @@ def who_wins(player, dealer, name):
     dealer.show_hole_card()
     print('\n' * 2)
     sum_in_dealer_hands = get_sum_of_cards(dealer.dealer_cards)
+
+    if not len(player.players_card):
+        print('Dealer ' + dealer.dealer_name + ' wins')
+        print('\n' * 2)
+
+    elif sum_in_dealer_hands < 17:
+        print('Dealer making hit')
+
+        while sum_in_dealer_hands < 17:
+            sum_in_dealer_hands = get_score(deck, dealer.dealer_cards)
+
+        print(dealer.dealer_cards)
+
     if sum_in_dealer_hands >= 21:
+        print('Dealer gets BUSTED')
         item_in_name_list = 0
         for cards in player.players_card:
             print(name.name_list[item_in_name_list] + ' wins against ' + dealer.dealer_name + ' the dealer')
@@ -139,7 +153,7 @@ def who_wins(player, dealer, name):
 
 
 jack = Table()
-deck = jack.get_deck(int(input('Enter number of decks needed min:1 and max:8 : ', )))
+deck = get_deck(int(input('Enter number of decks needed min:1 and max:8 : ', )))
 dealer = Dealer(deck)
 player = Player()
 number_of_players = int(input('Enter number of players min:1 and max:8 : ', ))

@@ -130,7 +130,7 @@ def who_wins(player, dealer, name):
 
 
 jack = Table()
-deck = jack.get_deck(int(input('Enter number of decks needed min:1 and max:8 : ', )))
+deck = get_deck(int(input('Enter number of decks needed min:1 and max:8 : ', )))
 dealer = Dealer(deck)
 player = Player()
 number_of_players = int(input('Enter number of players min:1 and max:8 : ', ))
