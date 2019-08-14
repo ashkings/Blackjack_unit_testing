@@ -34,9 +34,10 @@ class TestBlackjack(unittest.TestCase):
         table = Table()
         deck = get_deck()
         self.assertEqual(deck,
-                         ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q',
-                          'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J',
-                          'Q', 'K']
+                         ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K',
+                          'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K',
+                          'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K',
+                          'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
                          )
 
     def test_hand_for_each_player_gives_cards_list_equal_to_number_of_players(self):

@@ -19,5 +19,6 @@ class Player(Table):
 
         else:
             table = Table()
-            self.players_card = [table.get_initial_cards(deck) for player in range(player_count)]
+            self.players_card = [table.get_initial_cards(deck)
+                                 for player in range(player_count)]
         return self.players_card

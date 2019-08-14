@@ -4,10 +4,5 @@ class NameList:
         self.name_list = []
 
     def generate_player_list(self):
-        self.name_list = [input('Enter player name: ', ) for player in range(self.number_of_players)]
-
-"""
-name = NameList(2)
-name.generate_player_list()
-print(name.name_list)
-"""
+        self.name_list = [input('Enter player name: ', )
+                          for player in range(self.number_of_players)]
