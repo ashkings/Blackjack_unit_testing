@@ -39,7 +39,12 @@ class TestBlackjack(unittest.TestCase):
                           'Q', 'K']
                          )
 
-
+    def test_hand_for_each_player_gives_cards_list_equal_to_number_of_players(self):
+        table = Table()
+        deck = table.get_deck()
+        player = Player()
+        players_cards = player.hand_for_each_player(7, deck)
+        self.assertEqual(len(players_cards), 7)
 
 if __name__ == '__main__':
     unittest.main()
