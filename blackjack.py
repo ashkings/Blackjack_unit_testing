@@ -1,8 +1,7 @@
-from deck import Table, get_deck
+from deck import Table, get_deck, random
 from dealer import Dealer
 from player import Player, hit_or_stand
 from Players_Name_list import NameList
-import random
 
 
 def show_table(player, name):
@@ -114,11 +113,12 @@ def who_wins(player, dealer, name):
 
         print(dealer.dealer_cards)
 
-    if sum_in_dealer_hands >= 21:
+    if sum_in_dealer_hands > 21:
         print('Dealer gets BUSTED')
         item_in_name_list = 0
         for cards in player.players_card:
-            print(name.name_list[item_in_name_list] + ' wins against ' + dealer.dealer_name + ' the dealer')
+            print(name.name_list[item_in_name_list] + ' wins against ' +
+                  dealer.dealer_name + ' the dealer')
             print('\n' * 2)
             item_in_name_list = item_in_name_list + 1
 
@@ -131,7 +131,8 @@ def who_wins(player, dealer, name):
                 print('\n' * 2)
 
             elif sum_in_dealer_hands < sum_in_players_hand:
-                print(name.name_list[item_in_name_list] + ' wins against ' + dealer.dealer_name + ' the dealer')
+                print(name.name_list[item_in_name_list] + ' wins against ' +
+                      dealer.dealer_name + ' the dealer')
                 print('\n' * 2)
 
             elif sum_in_dealer_hands == sum_in_players_hand:
@@ -140,7 +141,8 @@ def who_wins(player, dealer, name):
                     print('\n' * 2)
 
                 elif not blackjack(Dealer.dealer_cards) and not blackjack(cards):
-                    print(name.name_list[item_in_name_list] + ' wins against ' + dealer.dealer_name + ' the dealer')
+                    print(name.name_list[item_in_name_list] + ' wins against ' +
+                          dealer.dealer_name + ' the dealer')
                     print('\n' * 2)
 
                 else:

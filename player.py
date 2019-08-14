@@ -1,5 +1,4 @@
 from deck import Table
-from Players_Name_list import NameList
 
 
 def hit_or_stand():

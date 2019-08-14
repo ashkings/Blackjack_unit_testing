@@ -18,10 +18,12 @@ class Table:
         self.hand = []
 
     def get_initial_cards(self, deck):
-        for item in range(2):
+        round = 2
+        while round:
             random.shuffle(deck)
             new_card = deck.pop()
             self.hand.append(new_card)
+            round = round - 1
         copy_hand = self.hand
         self.hand = []
         return copy_hand
