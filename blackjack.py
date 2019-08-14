@@ -86,16 +86,14 @@ def players_chance(deck, player, name):
 def blackjack(cards_list):
     count_for_blackjack = 0
 
-    for card in cards_list:
-        if card == 'J' or card == 'Q' or card == 'K' or card == 'A':
-            count_for_blackjack += 1
+    if 'J' in cards_list or 'Q' in cards_list or 'K' in cards_list:
+        count_for_blackjack = count_for_blackjack + 1
 
-    if count_for_blackjack <= 1:
-        count_for_blackjack = 0
-    else:
-        count_for_blackjack = 1
+    if 'A' in cards_list:
+        count_for_blackjack = count_for_blackjack + 1
 
-    return count_for_blackjack
+    if count_for_blackjack == 2:
+        return True
 
 
 def who_wins(player, dealer, name):
