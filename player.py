@@ -5,7 +5,7 @@ def hit_or_stand():
     return input('Press h to make a hit  s to make a stand: ', ).lower()
 
 
-class Player(Deck):
+class Player():
     def __init__(self):
         self.players_card = []
 
@@ -30,4 +30,4 @@ class NameList:
 
     def generate_player_list(self):
         self.name_list = [input('Enter player name: ', )
-                          for player in range(self.number_of_players)]
+                          for _ in range(self.number_of_players)]
